@@ -1,17 +1,3 @@
-// import "./App.css";
-// import Products from "./components/products";
-
-// function App() {
-//   return (
-//     <div className="App">
-//       Hello
-//       <Products />
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import "./App.css";
 import { useTranslation, Trans } from "react-i18next";
 
@@ -25,7 +11,6 @@ const lngs: any = {
 
 function App() {
   const { t, i18n } = useTranslation();
-
   return (
     <div className="App">
       <header className="App-header">

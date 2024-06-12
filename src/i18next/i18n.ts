@@ -45,4 +45,4 @@ i18n
   });
 
 export default i18n;
-//task:select box buttonlarda 
+//task:select box buttonlarda ,trans componente bax,navbar home about news deyisdir dillerle
