@@ -1,35 +1,48 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-// import { getDataFromStorage } from '../shared/storage/srorage';
+import LanguageDetector from "i18next-browser-languagedetector";
 
-i18n.use(initReactI18next).init({
-  resources: {
-    az: {
-      translations: {
-        HOME: "ESAS SEYFE",
-        "Add to basket": "Sebete Elave et",
-        "Remove Basket": "Sebetinden Sil",
-      },
-    },
-    en: {
-      translations: {
-        HOME: "HOME",
-        "Add to basket": "Add to basket",
-        "Remove Basket": "Remove Basket",
-      },
-    },
-  },
-  fallbackLng: ["az", "en"],
-  ns: ["translations"],
-  debug: true,
-  defaultNS: "translations",
-  keySeparator: false,
-  interpolation: {
-    escapeValue: false,
-  },
+i18n.init({
+  fallbackLng: ["az"],
 });
 
-// Test amaçlı olarak dili Azerice'ye manuel olarak ayarlayın
-i18n.changeLanguage("az");
+i18n
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    // debug: true,
+    fallbackLng: "en",
+    // interpolation: {
+    //   escapeValue: false,
+    // },
+    resources: {
+      en: {
+        translation: {
+          home: "home",
+        },
+      },
+      de: {
+        translation: {
+          home: "Esas sayfa",
+        },
+      },
+      fr: {
+        translation: {
+          home: "maison",
+        },
+      },
+      tr: {
+        translation: {
+          home: "Ev",
+        },
+      },
+      az: {
+        translation: {
+          home: "Esas",
+        },
+      },
+    },
+  });
 
 export default i18n;
+//task:select box buttonlarda 

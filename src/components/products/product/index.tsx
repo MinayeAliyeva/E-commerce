@@ -8,7 +8,11 @@ import { Title, Image } from "../styled-components";
 interface IProps {
   item: Iproduct;
 }
-interface IState {}
+
+interface IState {
+
+}
+
 
 const Product: React.FC<IProps> = ({ item }) => {
   console.log("item", item);
