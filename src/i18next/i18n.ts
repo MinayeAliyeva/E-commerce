@@ -10,35 +10,39 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    // debug: true,
     fallbackLng: "en",
-    // interpolation: {
-    //   escapeValue: false,
-    // },
     resources: {
       en: {
         translation: {
           home: "home",
+          Home: "Home ",
+          About: "About",
         },
       },
       de: {
         translation: {
-          home: "Esas sayfa",
+          home: "deutsch",
+          Home: "Deutsch ",
         },
       },
       fr: {
         translation: {
           home: "maison",
+          Home: "Maison",
         },
       },
       tr: {
         translation: {
           home: "Ev",
+          Home: "Ana sayfa",
+          About: "Hakkimizda",
         },
       },
       az: {
         translation: {
           home: "Esas",
+          Home: "Esas sehife",
+          About: "Haqqimizda",
         },
       },
     },

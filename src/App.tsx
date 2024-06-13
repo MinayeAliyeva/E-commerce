@@ -1,5 +1,6 @@
 import "./App.css";
 import { useTranslation, Trans } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const lngs: any = {
   en: { nativeName: "English" },
@@ -11,6 +12,10 @@ const lngs: any = {
 
 function App() {
   const { t, i18n } = useTranslation();
+
+  const changeLanguange = (lng: any) => {
+    i18n.changeLanguage(lng);
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -22,7 +27,7 @@ function App() {
                 fontWeight: i18n.resolvedLanguage === lng ? "bold" : "normal",
               }}
               type="submit"
-              onClick={() => i18n.changeLanguage(lng)}
+              onClick={() => changeLanguange(lng)}
             >
               {lngs?.[lng].nativeName}
             </button>
@@ -30,6 +35,21 @@ function App() {
         </div>
 
         <p>{t("home")}</p>
+
+        <nav className="navbar">
+          <a href="">{t("Home")}</a>
+          <a href="">{t("About")}</a>
+          <a href="">{t("Company")}</a>
+          <a href="">{t("Blog")}</a>
+          <select onChange={(e) => changeLanguange(e.target.value)}>
+            <option disabled selected>
+              Language
+            </option>
+            {Object.keys(lngs).map((lng) => (
+              <option value={lng}> {lngs?.[lng].nativeName}</option>
+            ))}
+          </select>
+        </nav>
       </header>
     </div>
   );
