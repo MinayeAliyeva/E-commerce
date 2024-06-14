@@ -4,6 +4,7 @@ import axios from "axios";
 import { productsApiUrl } from "../../api/apiKeys";
 import Product from "./product";
 import { Iproduct } from "./modules";
+import { Col, Row } from "antd";
 
 type IState = Iproduct[];
 
@@ -20,10 +21,13 @@ const Products = () => {
 
   return (
     <>
-      {t("HOME")}
-      {products?.map((product) => (
-        <Product key={product?.id} item={product} />
-      ))}
+      <Row gutter={[24, 56]}>
+        {products?.map((product) => (
+          <Col span={6} >
+            <Product key={product?.id} item={product} />
+          </Col>
+        ))}
+      </Row>
     </>
   );
 };

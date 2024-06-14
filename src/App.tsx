@@ -1,6 +1,6 @@
 import "./App.css";
-import { useTranslation, Trans } from "react-i18next";
-import { Link } from "react-router-dom";
+import Products from "./components/products";
+import HeaderComp from "./components/header";
 
 const lngs: any = {
   en: { nativeName: "English" },
@@ -11,14 +11,14 @@ const lngs: any = {
 };
 
 function App() {
-  const { t, i18n } = useTranslation();
+  // const { t, i18n } = useTranslation();
 
-  const changeLanguange = (lng: any) => {
-    i18n.changeLanguage(lng);
-  };
+  // const changeLanguange = (lng: any) => {
+  //   i18n.changeLanguage(lng);
+  // };
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <div>
           {Object.keys(lngs).map((lng) => (
             <button
@@ -37,7 +37,7 @@ function App() {
         <p>{t("home")}</p>
 
         <nav className="navbar">
-          <a href="">{t("Home")}</a>
+          <Link to="/">{t("Home")}</Link>
           <a href="">{t("About")}</a>
           <a href="">{t("Company")}</a>
           <a href="">{t("Blog")}</a>
@@ -46,13 +46,20 @@ function App() {
               Language
             </option>
             {Object.keys(lngs).map((lng) => (
-              <option value={lng}> {lngs?.[lng].nativeName}</option>
+              <option key={lng} value={lng}>
+                {" "}
+                {lngs?.[lng].nativeName}
+              </option>
             ))}
           </select>
         </nav>
-      </header>
+      </header> */}
+      <HeaderComp />
+      <Products />
     </div>
   );
 }
 
 export default App;
+
+//basket yaz ayri component
