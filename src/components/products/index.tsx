@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { productsApiUrl } from "../../api/apiKeys";
 import Product from "./product";

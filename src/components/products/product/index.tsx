@@ -1,40 +1,99 @@
 import React from "react";
+import { Card, Col, Row, Button, Divider, notification } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
 import { Iproduct } from "../modules";
-import { Button, Card, Divider, Typography } from "antd";
 import { useBasketContext } from "../../../contextApi/BasketContext";
-interface IProps {
-  item: Iproduct;
-}
+// import { connect } from "react-redux";
+// import { withRouter } from "react-router-dom";
+const Product: React.FC<{ item: Iproduct }> = ({ item }) => {
+  // const addCart = (item) => {
+  //   props.add_cart(item);
+  //   openNotification();
+  // };
+  const { addToCard } = useBasketContext();
+  // console.log("context", context);
 
-const Product: React.FC<IProps> = ({ item }) => {
-  // console.log("item", item);
-  const { setCount } = useBasketContext();
-  console.log("setCount", setCount);
+  const openNotification = () => {
+    notification.open({
+      style: {
+        color: "#1DA57A",
+        fontWeight: "bold",
+        opacity: 0.9,
+        cursor: "pointer",
+      },
+      placement: "bottomRight",
+      message: "Item Added",
+      // description: `${props.itemName} is added to your cart.`,
+      duration: 4,
+    });
+  };
 
   return (
-    <Card
-      hoverable
-      style={{ width: 240 }}
-      cover={<img alt="example" src={item?.image} />}
-    >
-      <Typography.Text>{item?.title}</Typography.Text>
-      <Divider />
-      <Typography.Text>{item?.price}</Typography.Text>
-      <Divider />
-      <Button type="primary" onClick={() => console.log("product id", item.id)}>
-        Add to card
-      </Button>
-      <Button type="primary" onClick={() => setCount((count) => count + 1)}>
-        +
-      </Button>
-      <Button type="primary" onClick={() => setCount((count) => count - 1)}>
-        -
-      </Button>
-    </Card>
+    <Col md={8}>
+      <Card
+        hoverable
+        style={{ padding: 10, width: "250px" }}
+        cover={
+          <img height="320px" width="280px" alt="example" src={item?.image} />
+        }
+      >
+        <Card.Meta
+          title={<h2>Name</h2>}
+          // description={props.itemDescription}
+        />
+        <br></br>
+        <Divider orientation="center">Price</Divider>
+        <p
+          style={{
+            lineHeight: "28px",
+            fontWeight: "lighter",
+            fontSize: "46px",
+            color: "#2ecc71",
+            textAlign: "center",
+          }}
+        >
+          Price
+        </p>
+        <Row gutter={[10, 10]} className="add-cart-btn-row">
+          <Col>
+            <Button
+              title="Add item to cart"
+              onClick={() => {
+                addToCard(item);
+              }}
+              type="primary"
+            >
+              Add to cart
+            </Button>
+          </Col>
+          <Col>
+            <Button
+              title="Remove item from cart"
+              onClick={() => {
+                console.log("Deleted");
+              }}
+              type="primary"
+              danger
+            >
+              <DeleteOutlined />
+            </Button>
+          </Col>
+        </Row>
+      </Card>
+    </Col>
   );
 };
 
-export default Product;
+// const mapStateToProps = (state) => ({
+//   cart: state.cart,
+//   url_key: state.url_key,
+// });
 
-//translate
-//
+// const mapDispatchToProps = (dispatch) => ({
+//   add_cart: (item) => dispatch({ type: "ADD_PRODUCT", payload: item }),
+//   remove_single: (itemId) =>
+//     dispatch({ type: "REMOVE_SINGLE", payload: itemId }),
+//   setUrl: (urlKey) => dispatch({ type: "SET_URL", payload: urlKey }),
+// });
+
+export default Product;
