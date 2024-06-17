@@ -10,14 +10,14 @@ type IState = Iproduct[];
 
 const Products = () => {
   const [products, setProducts] = useState<IState>([]);
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
 
   useEffect(() => {
     axios.get(productsApiUrl).then((res) => {
       setProducts(res?.data);
     });
   }, []);
-  //   console.log("products", products);
+ 
 
   return (
     <>

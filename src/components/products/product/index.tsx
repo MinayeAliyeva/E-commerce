@@ -1,15 +1,15 @@
 import React from "react";
 import { Iproduct } from "../modules";
-import { Button, Card, Divider, List, Typography } from "antd";
-
+import { Button, Card, Divider, Typography } from "antd";
+import { useBasketContext } from "../../../contextApi/BasketContext";
 interface IProps {
   item: Iproduct;
 }
 
-// interface IState {}
-
 const Product: React.FC<IProps> = ({ item }) => {
   // console.log("item", item);
+  const { setCount } = useBasketContext();
+  console.log("setCount", setCount);
 
   return (
     <Card
@@ -23,6 +23,12 @@ const Product: React.FC<IProps> = ({ item }) => {
       <Divider />
       <Button type="primary" onClick={() => console.log("product id", item.id)}>
         Add to card
+      </Button>
+      <Button type="primary" onClick={() => setCount((count) => count + 1)}>
+        +
+      </Button>
+      <Button type="primary" onClick={() => setCount((count) => count - 1)}>
+        -
       </Button>
     </Card>
   );

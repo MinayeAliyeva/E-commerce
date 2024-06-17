@@ -64,3 +64,6 @@ export const ThemeContextProvider: React.FC<{ children?: ReactNode }> = ({
 export const useThemeContext = () => {
   return useContext(ThemeContext);
 };
+
+///sebetin yaninda iki button increase ,dec... sepeti update etsin
+//cardlarda da eynisi
