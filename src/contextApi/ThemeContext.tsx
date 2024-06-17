@@ -3,6 +3,7 @@ import {
   ReactNode,
   SetStateAction,
   createContext,
+  useContext,
   useState,
 } from "react";
 interface ILight {
@@ -58,4 +59,8 @@ export const ThemeContextProvider: React.FC<{ children?: ReactNode }> = ({
   return (
     <ThemeContext.Provider value={value}> {children}</ThemeContext.Provider>
   );
+};
+
+export const useThemeContext = () => {
+  return useContext(ThemeContext);
 };

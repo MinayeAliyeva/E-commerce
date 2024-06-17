@@ -1,13 +1,11 @@
 import "./App.css";
 import Products from "./components/products";
 import HeaderComp from "./components/header";
-import { ThemeContext, black } from "./contextApi/ThemeContext";
-import { useContext } from "react";
-
+import { black } from "./contextApi/ThemeContext";
+import { useThemeContext } from "./contextApi/ThemeContext";
 
 function App() {
-  const { light, toggle, setToggle } = useContext(ThemeContext);
-
+  const { light, toggle, setToggle } = useThemeContext();
   return (
     <div className="App">
       <div style={toggle ? black : light}>Emin</div>
@@ -21,5 +19,3 @@ function App() {
 }
 
 export default App;
-
-
