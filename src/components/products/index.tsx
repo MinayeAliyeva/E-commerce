@@ -22,7 +22,7 @@ const Products = () => {
     <>
       <Row gutter={[24, 56]}>
         {products?.map((product) => (
-          <Col span={6} >
+          <Col key={product?.id} span={6} >
             <Product key={product?.id} item={product} />
           </Col>
         ))}

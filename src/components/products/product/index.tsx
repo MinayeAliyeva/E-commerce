@@ -10,23 +10,23 @@ const Product: React.FC<{ item: Iproduct }> = ({ item }) => {
   //   props.add_cart(item);
   //   openNotification();
   // };
-  const { addToCard } = useBasketContext();
+  const { addToCard, removeProduct } = useBasketContext();
   // console.log("context", context);
 
-  const openNotification = () => {
-    notification.open({
-      style: {
-        color: "#1DA57A",
-        fontWeight: "bold",
-        opacity: 0.9,
-        cursor: "pointer",
-      },
-      placement: "bottomRight",
-      message: "Item Added",
-      // description: `${props.itemName} is added to your cart.`,
-      duration: 4,
-    });
-  };
+  // const openNotification = () => {
+  //   notification.open({
+  //     style: {
+  //       color: "#1DA57A",
+  //       fontWeight: "bold",
+  //       opacity: 0.9,
+  //       cursor: "pointer",
+  //     },
+  //     placement: "bottomRight",
+  //     message: "Item Added",
+  //     // description: `${props.itemName} is added to your cart.`,
+  //     duration: 4,
+  //   });
+  // };
 
   return (
     <Col md={8}>
@@ -37,10 +37,7 @@ const Product: React.FC<{ item: Iproduct }> = ({ item }) => {
           <img height="320px" width="280px" alt="example" src={item?.image} />
         }
       >
-        <Card.Meta
-          title={<h2>Name</h2>}
-          // description={props.itemDescription}
-        />
+        {/* <Card.Meta title={<h2>Name</h2>} description={item.description} /> */}
         <br></br>
         <Divider orientation="center">Price</Divider>
         <p
@@ -70,7 +67,8 @@ const Product: React.FC<{ item: Iproduct }> = ({ item }) => {
             <Button
               title="Remove item from cart"
               onClick={() => {
-                console.log("Deleted");
+                removeProduct(item?.id);
+                console.log("item?.id", item?.id);
               }}
               type="primary"
               danger
