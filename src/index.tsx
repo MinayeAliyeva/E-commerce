@@ -10,12 +10,12 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <BasketContextProvider>
-        <ThemeContextProvider>
+    <BasketContextProvider>
+      <ThemeContextProvider>
+        <BrowserRouter  basename="/github.io/E-commerce">
           <App />
-        </ThemeContextProvider>
-      </BasketContextProvider>
-    </BrowserRouter>
+        </BrowserRouter>
+      </ThemeContextProvider>
+    </BasketContextProvider>
   </React.StrictMode>
 );
