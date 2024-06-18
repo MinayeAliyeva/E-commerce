@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.e382205c.css","mappings":"AAAA,QAEI,kBAAmB,CAGnB,oBAAqB,CAJrB,YAAa,CAEb,6BAA8B,CAC9B,cAEJ","sources":["App.css"],"sourcesContent":[".navbar{\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 10px 0;\n    background-color: red;\n}"],"names":[],"sourceRoot":""}
