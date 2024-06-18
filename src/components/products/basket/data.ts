@@ -1,33 +1,25 @@
-import type { TableProps } from "antd";
-type ColumnsType<T> = TableProps<T>["columns"];
+import { TableColumnsType } from "antd";
+import { DataType } from "../../../theme/x-libs/Table";
 
-export const columns: ColumnsType<any> = [
-  {
-    title: "Name",
-    dataIndex: "name",
-    width: "20%",
-    filters: [
-      {
-        text: "name",
-        value: "name",
-      },
-    ],
-    onFilter: (value, record) => record.name.indexOf(value as string) === 0,
-  },
-  {
-    title: "Description",
-    dataIndex: "description",
-    width: "20%",
-  },
-  {
-    title: "Age",
-    dataIndex: "age",
-    render: (value, record, index) => {
-      // console.log("value, record, index", { value, record, index });
-      return record?.info?.age;
+  export const columns: TableColumnsType<DataType> = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+      width: '30%',
     },
-    width: "20%",
-  },
-];
+    {
+      title: 'Age',
+      dataIndex: 'age',
+      key: 'age',
+      width: '20%',
+    },
+    {
+      title: 'Address',
+      dataIndex: 'address',
+      key: 'address',
+      sorter: (a, b) => a.address.toString().length - b.address?.toString().length,
+      sortDirections: ['descend', 'ascend'],
+    },
+  ];
 
-//column render

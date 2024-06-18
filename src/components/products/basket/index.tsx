@@ -1,8 +1,10 @@
 
 import XTable, { DataType } from "../../../theme/x-libs/Table";
+import { columns } from "./data";
 
 
-
+// data ni basketcontext api dan gotirib xtableye gonderirsen
+// data ts faylivi ona gore ayarlayirsan ex: dataIndex: 'age' edirsen dataIndex: 'description'
 const data: DataType[] = [
   {
     key: "1",
@@ -33,7 +35,7 @@ const data: DataType[] = [
 const Basket = () => {
   return (
     <>
-      <XTable data={data}  />
+      <XTable data={data} columns={columns} />
     </>
   );
 };
