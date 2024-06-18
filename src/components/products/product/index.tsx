@@ -21,7 +21,6 @@ const Product: React.FC<{ item: Iproduct }> = ({ item }) => {
     notification.success({ message: `${item.id} id-li product sepetde` });
   };
 
-  // Ürünü sepetten çıkar ve durumu güncelle
   const handleRemoveFromCart = () => {
     removeProduct(item.id);
     setIsInCart(false);
@@ -58,7 +57,7 @@ const Product: React.FC<{ item: Iproduct }> = ({ item }) => {
               type="primary"
               disabled={isInCart}
             >
-              Sepete ekle
+              Add to card
             </Button>
           </Col>
           <Col>

@@ -3,6 +3,7 @@ import Products from "./components/products";
 import HeaderComp from "./components/header";
 import { black } from "./contextApi/ThemeContext";
 import { useThemeContext } from "./contextApi/ThemeContext";
+import Cart from "./components/products/basket/BasketTable";
 
 function App() {
   const { light, toggle, setToggle } = useThemeContext();
@@ -14,6 +15,7 @@ function App() {
       </button>
       <HeaderComp />
       <Products />
+      <Cart/>
     </div>
   );
 }
