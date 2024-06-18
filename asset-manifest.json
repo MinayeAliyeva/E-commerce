@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/MinayeAliyeva/E-commerce/static/css/main.e382205c.css",
-    "main.js": "/MinayeAliyeva/E-commerce/static/js/main.ac1b6e5f.js",
-    "index.html": "/MinayeAliyeva/E-commerce/index.html",
-    "main.e382205c.css.map": "/MinayeAliyeva/E-commerce/static/css/main.e382205c.css.map",
-    "main.ac1b6e5f.js.map": "/MinayeAliyeva/E-commerce/static/js/main.ac1b6e5f.js.map"
+    "main.css": "/github.io/E-commerce/static/css/main.e382205c.css",
+    "main.js": "/github.io/E-commerce/static/js/main.ac1b6e5f.js",
+    "index.html": "/github.io/E-commerce/index.html",
+    "main.e382205c.css.map": "/github.io/E-commerce/static/css/main.e382205c.css.map",
+    "main.ac1b6e5f.js.map": "/github.io/E-commerce/static/js/main.ac1b6e5f.js.map"
   },
   "entrypoints": [
     "static/css/main.e382205c.css",
