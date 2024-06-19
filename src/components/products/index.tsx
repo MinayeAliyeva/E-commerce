@@ -4,6 +4,7 @@ import { productsApiUrl } from "../../api/apiKeys";
 import Product from "./product";
 import { Iproduct } from "./modules";
 import { Col, Row } from "antd";
+import { map } from "lodash";
 
 type IState = Iproduct[];
 
@@ -16,13 +17,12 @@ const Products = () => {
       setProducts(res?.data);
     });
   }, []);
- 
 
   return (
     <>
       <Row gutter={[24, 56]}>
-        {products?.map((product) => (
-          <Col key={product?.id} span={6} >
+        {map(products, (product) => (
+          <Col key={product?.id} span={6}>
             <Product key={product?.id} item={product} />
           </Col>
         ))}

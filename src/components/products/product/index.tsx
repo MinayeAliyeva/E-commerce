@@ -6,7 +6,7 @@ import { useBasketContext } from "../../../contextApi/BasketContext";
 
 const Product: React.FC<{ item: Iproduct }> = ({ item }) => {
   const { addToCard, removeProduct, products } = useBasketContext();
-  console.log("products", products);
+  // console.log("products", products);
 
   const [isInCart, setIsInCart] = useState(false);
 
