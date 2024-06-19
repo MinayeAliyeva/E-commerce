@@ -1,8 +1,8 @@
 import XTable from "../../../theme/x-libs/Table";
-import { columns } from "./data";
+
 import { useBasketContext } from "../../../contextApi/BasketContext";
 import { map } from "lodash";
-import Test from "../../Tests/Test";
+import { columns } from "./data";
 
 const Basket = () => {
   const { products } = useBasketContext();
@@ -19,9 +19,7 @@ const Basket = () => {
   return (
     <>
       <XTable data={tableData} columns={columns} />
-      <div>
-        <Test text="This is a long text that will be truncated. Click to see more." />
-      </div>
+      {/* <Test text="This is a long text that will be truncated. Click to see more." /> */}
     </>
   );
 };

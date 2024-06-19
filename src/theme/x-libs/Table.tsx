@@ -109,10 +109,7 @@ const XTable: React.FC<{
       if (visible) {
         setTimeout(() => searchInput.current?.select(), 100);
       }
-    },
-    render: (value) => {
-      return value;
-    },
+    }
   });
   const tableColumns = map(columns, (column) => {
     return {
