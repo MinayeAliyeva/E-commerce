@@ -12,7 +12,7 @@ root.render(
   <React.StrictMode>
     <BasketContextProvider>
       <ThemeContextProvider>
-        <BrowserRouter  basename="/github.io/E-commerce">
+        <BrowserRouter basename="/github.io/E-commerce">
           <App />
         </BrowserRouter>
       </ThemeContextProvider>

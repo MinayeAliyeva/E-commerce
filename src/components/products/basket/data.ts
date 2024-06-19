@@ -3,19 +3,29 @@ import { DataType } from "../../../theme/x-libs/Table";
 
 export const columns: TableColumnsType<DataType> = [
   {
-    title: "Name",
-    dataIndex: "title",
-    key: "title",
+    title: "Product",
+    dataIndex: "productName",
+    key: "productName",
     width: "30%",
   },
   {
-    title: "Age",
+    title: "Description",
     dataIndex: "description",
+    render: (value, record, i) => {
+      console.log("value,record,i", { value, record, i });
+      return value;
+    },
     key: "description",
     width: "20%",
   },
   {
-    title: "Address",
+    title: "Category",
+    dataIndex: "category",
+    key: "category",
+    width: "30%",
+  },
+  {
+    title: "Price",
     dataIndex: "price",
     key: "price",
     sorter: (a, b) =>
@@ -23,9 +33,13 @@ export const columns: TableColumnsType<DataType> = [
     sortDirections: ["descend", "ascend"],
   },
   {
-    title: "Rating",
-    dataIndex: "raitingCount",
-    key: "raitingCount",
+    title: "Test",
+    dataIndex: "test",
+    key: "test",
     width: "30%",
+    render: (value) => {
+      console.log("test", value);
+      return value?.age;
+    },
   },
 ];
