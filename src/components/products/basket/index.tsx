@@ -1,13 +1,14 @@
 import XTable from "../../../theme/x-libs/Table";
-
 import { useBasketContext } from "../../../contextApi/BasketContext";
 import { map } from "lodash";
-import { columns } from "./data";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { Stack } from "@mui/material";
 
 const Basket = () => {
-  const { products } = useBasketContext();
-
+  const { products, removeProduct } = useBasketContext();
   const tableData = map(products, (product) => ({
+    image: product?.image,
     productName: product?.title,
     description: product?.description,
     price: product?.price,
@@ -15,11 +16,56 @@ const Basket = () => {
     test: {
       age: 20,
     },
+    id:product?.id
   }));
+
+  const columns = [
+    {
+      title: "Product",
+      key: "product",
+      render: (text: any, record: any) => {
+        console.log("record.id",record);
+        
+        return (
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <img
+              src={record?.image}
+              alt={record?.productName}
+              style={{ width: 50, height: 50, marginRight: 10 }}
+            />
+            <span>{record?.productName}</span>
+            <Stack direction="row" spacing={1}>
+              <IconButton
+                aria-label="delete"
+                onClick={() => removeProduct(record?.id)}
+              >
+                <DeleteIcon />
+              </IconButton>
+            </Stack>
+          </div>
+        );
+      },
+    },
+    {
+      title: "Description",
+      dataIndex: "description",
+      key: "description",
+    },
+    {
+      title: "Price",
+      dataIndex: "price",
+      key: "price",
+    },
+    {
+      title: "Category",
+      dataIndex: "category",
+      key: "category",
+    },
+  ];
+
   return (
     <>
       <XTable data={tableData} columns={columns} />
-      {/* <Test text="This is a long text that will be truncated. Click to see more." /> */}
     </>
   );
 };

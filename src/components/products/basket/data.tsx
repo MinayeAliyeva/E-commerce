@@ -1,6 +1,6 @@
 import { TableColumnsType } from "antd";
 import { DataType } from "../../../theme/x-libs/Table";
-import CompA from "../../StatusTooltip"
+import CompA from "../../StatusTooltip";
 
 export const columns: TableColumnsType<DataType> = [
   {
@@ -13,7 +13,7 @@ export const columns: TableColumnsType<DataType> = [
     title: "Description",
     dataIndex: "description",
     render: (value, record, i) => {
-      return  <CompA text={value}/>
+      return <CompA text={value} />;
     },
     key: "description",
     width: "20%",
