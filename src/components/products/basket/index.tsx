@@ -1,6 +1,6 @@
 import XTable from "../../../theme/x-libs/Table";
 import { useBasketContext } from "../../../contextApi/BasketContext";
-import { map } from "lodash";
+import { map, reduce } from "lodash";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Stack } from "@mui/material";
@@ -16,7 +16,7 @@ const Basket = () => {
     test: {
       age: 20,
     },
-    id:product?.id
+    id: product?.id,
   }));
 
   const columns = [
@@ -24,8 +24,7 @@ const Basket = () => {
       title: "Product",
       key: "product",
       render: (text: any, record: any) => {
-        console.log("record.id",record);
-        
+        console.log("record", record);
         return (
           <div style={{ display: "flex", alignItems: "center" }}>
             <img
@@ -62,10 +61,12 @@ const Basket = () => {
       key: "category",
     },
   ];
+  const totalPrice = reduce(products, (sum, product) => sum + product.price, 0);
 
   return (
     <>
       <XTable data={tableData} columns={columns} />
+      Total price:{totalPrice}
     </>
   );
 };
